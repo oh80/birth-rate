@@ -3,5 +3,7 @@
 .RData
 .Ruserdata
 
-\02_raw
+\02_raw\employment\data
+\02_raw\birth-rare\data
+\02_raw\female-pop\data
 \00_cover
