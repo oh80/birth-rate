@@ -1,5 +1,5 @@
 main <- function(){
-  initialize_renv()
+  #initialize_renv()
   packages_list() -> lists
   update_list(lists)
 }
