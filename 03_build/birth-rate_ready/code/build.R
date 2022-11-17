@@ -3,11 +3,11 @@ library(magrittr)
 main <- function(){
   my_folder <- "birth-rate"
   
-  birth_rate_data <- read_data(my_folder,
-                               fime_name <- "birth-rate.csv")
+  birth_rate_ready <- read_data(my_folder,
+                               fime_name <- "birth-rate.csv") 
 
   
-  basics$save_interim(birth_rate_data, my_folder, extension = "ready")
+  basics$save_interim(birth_rate_ready, my_folder, extension = "ready")
 }
 
 read_data <- function(folder_name,file_name){
