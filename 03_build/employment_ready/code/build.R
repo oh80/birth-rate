@@ -2,11 +2,11 @@ library(magrittr)
 
 main <- function(){
   employment_data <- read_employment(folder_name <-   "employment",
-                                    fime_name <- "employment.csv") 
+                                    fime_name <- "employment.csv")  
   female_pop_data <- read_pop(folder_name  <- "female-pop",
                               fime_name <- "female-pop.csv")
   
-  employment_ready <- master_data(employment_data,female_pop_data)
+  employment_ready <- master_data(employment_data,female_pop_data) 
   
   basics$save_interim(employment_ready,"employment", extension = "ready")
 }
@@ -20,6 +20,9 @@ read_employment <- function(folder_name,file_name){
   data$regular_employment <- sub(",","",data$regular_employment)
   data <- data %>% dplyr::mutate(regular_employment=as.numeric(regular_employment))
   
+  data$prefecture <- sub(" ","",data$prefecture)
+  data$prefecture <- sub(" ","",data$prefecture)
+  
   return(data)
 }
 
@@ -28,7 +31,8 @@ read_pop <- function(folder_name,file_name){
   data <- read.csv(file = file_path,header = F) %>% 
     dplyr::as_tibble() %>% dplyr::rename("prefecture"="V1",
                                          "female_pop"="V2")%>% 
-    dplyr::mutate(female_pop=as.numeric(female_pop))
+    dplyr::mutate(female_pop=as.numeric(female_pop)*1000)
+
   return(data)
 }
 
