@@ -4,7 +4,7 @@ main <- function(){
   employment_data <- basics$read_interim("employment", extension = "ready")  %>% print()
   birth_rate_data <- basics$read_interim("birth-rate", extension = "ready") 
   
-  maste_data <- master(employment_data,birth_rate_data) 
+  master_data <- master(employment_data,birth_rate_data) 
   
   basics$save_interim(master_data, "master")
 }
